@@ -16,12 +16,19 @@
 
 	<properties>
 		<java.version>15</java.version>
+		<dependency.version.javafx>15.0.1</dependency.version.javafx>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>${dependency.version.javafx}</version>
 		</dependency>
 
 		<dependency>
