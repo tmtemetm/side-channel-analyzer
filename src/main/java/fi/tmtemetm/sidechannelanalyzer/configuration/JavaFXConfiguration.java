@@ -1,8 +1,8 @@
 package fi.tmtemetm.sidechannelanalyzer.configuration;
 
 import fi.tmtemetm.sidechannelanalyzer.event.StageReadyEvent;
+import fi.tmtemetm.sidechannelanalyzer.view.impl.IndexView;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -19,13 +19,14 @@ import org.springframework.stereotype.Component;
 public class JavaFXConfiguration {
 
   private final FXProperties properties;
+  private final IndexView indexView;
 
   @EventListener
   public void stageReadyEventListener(StageReadyEvent stageReadyEvent) throws Exception {
     Stage stage = stageReadyEvent.getStage();
     stage.setTitle(properties.stage.title);
 
-    Scene scene = new Scene(new Label(properties.stage.title));
+    Scene scene = new Scene(indexView.createRootNode());
     stage.setScene(scene);
 
     stage.show();

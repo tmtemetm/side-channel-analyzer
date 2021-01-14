@@ -30,6 +30,11 @@
 			<artifactId>javafx-controls</artifactId>
 			<version>${dependency.version.javafx}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>${dependency.version.javafx}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
