@@ -3,6 +3,9 @@ package fi.tmtemetm.sidechannelanalyzer;
 import javafx.application.Application;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author tmtemetm
+ */
 @SpringBootApplication
 public class SideChannelAnalyzerApplication {
 
