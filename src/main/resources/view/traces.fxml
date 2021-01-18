@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="fi.tmtemetm.sidechannelanalyzer.controller.TracesController"
+           fx:id="splitPane">
+  <VBox>
+    <TitledPane fx:id="plotTracesPane"
+                text="Plot traces">
+      <VBox>
+        <Label text="Select traces to plot" />
+        <HBox>
+          <Button text="Select all"
+                  onAction="#handleSelectAll" />
+          <Button text="Unselect all"
+                  onAction="#handleUnselectAll" />
+        </HBox>
+        <ScrollPane>
+          <VBox fx:id="traceSelection">
+          </VBox>
+        </ScrollPane>
+        <Label text="Start" />
+        <TextField fx:id="startField"
+                   text="0" />
+        <Label text="End (exclusive)" />
+        <TextField fx:id="endField" />
+        <Button text="Plot traces"
+                onAction="#handlePlotTraces" />
+      </VBox>
+    </TitledPane>
+    <TitledPane text="Current selection">
+      <VBox>
+        <HBox>
+          <Label text="Start: " />
+          <Label fx:id="currentSelectionStart" />
+        </HBox>
+        <HBox>
+          <Label text="End: " />
+          <Label fx:id="currentSelectionEnd" />
+        </HBox>
+        <Button text="Plot current selection"
+                onAction="#handlePlotCurrentSelection" />
+        <Button text="Run DPA on selection"
+                onAction="#handleRunDPAOnCurrentSelection" />
+      </VBox>
+    </TitledPane>
+  </VBox>
+  <Pane>
+    <Label text="Choose what to plot" />
+  </Pane>
+</SplitPane>

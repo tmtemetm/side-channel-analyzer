@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="fi.tmtemetm.sidechannelanalyzer.controller.DPASettingsController">
+  <HBox>
+    <Label text="Number of traces: " />
+    <TextField fx:id="numberOfTracesField" />
+  </HBox>
+  <HBox>
+    <Label text="Start: " />
+    <TextField fx:id="startField"
+               text="0" />
+  </HBox>
+  <HBox>
+    <Label text="End: " />
+    <TextField fx:id="endField" />
+  </HBox>
+  <Button text="Run DPA"
+          onAction="#handleRunDPA" />
+</VBox>

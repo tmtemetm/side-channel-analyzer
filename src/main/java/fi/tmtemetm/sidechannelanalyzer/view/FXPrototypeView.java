@@ -7,6 +7,6 @@ import java.io.IOException;
 /**
  * @author tmtemetm
  */
-public interface FXView<R extends Node> {
-  R createRootNode() throws IOException;
+public interface FXPrototypeView<R extends Node, C> {
+  R createRootNode(C controller) throws IOException;
 }

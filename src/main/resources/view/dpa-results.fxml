@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fi.tmtemetm.sidechannelanalyzer.controller.DPAResultsController"
+            fx:id="vBox"
+            style="-fx-padding: 25 25 25 25;">
+  <ProgressBar fx:id="progressBar"
+               progress="0.0"
+               minHeight="20.0" />
+  <Label text="Key:" />
+  <HBox fx:id="fullKey" />
+  <ChoiceBox fx:id="byteChoice"
+             onAction="#handleChoice" />
+  <HBox fx:id="details" />
+</VBox>

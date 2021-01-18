@@ -1,8 +1,8 @@
 package fi.tmtemetm.sidechannelanalyzer.view.impl;
 
-import fi.tmtemetm.sidechannelanalyzer.controller.IndexController;
+import fi.tmtemetm.sidechannelanalyzer.controller.DPASettingsController;
 import fi.tmtemetm.sidechannelanalyzer.view.FXMLView;
-import javafx.scene.control.TabPane;
+import javafx.scene.layout.VBox;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
  * @author tmtemetm
  */
 @Component
-public class IndexView extends FXMLView<TabPane> {
+public class DPASettingsView extends FXMLView<VBox> {
 
-  public IndexView(@Value("classpath:/view/index.fxml") Resource resource,
-                   IndexController controller) {
+  public DPASettingsView(@Value("classpath:/view/dpa-settings.fxml") Resource resource,
+                         DPASettingsController controller) {
     super(resource, controller);
   }
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.Rectangle?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="fi.tmtemetm.sidechannelanalyzer.controller.TracesPlotController">
+  <StackPane>
+    <LineChart fx:id="lineChart"
+               title="Traces"
+               createSymbols="false"
+               animated="false">
+      <xAxis>
+        <NumberAxis fx:id="xAxis"
+                    label="Time"
+                    autoRanging="false" />
+      </xAxis>
+      <yAxis>
+        <NumberAxis fx:id="yAxis"
+                    label="Value"
+                    side="LEFT"
+                    autoRanging="false" />
+      </yAxis>
+    </LineChart>
+    <AnchorPane fx:id="anchorPane"
+                onMouseMoved="#handleMouseMoved"
+                onMouseExited="#handleMouseExited"
+                onMouseDragExited="#handleMouseExited"
+                onMousePressed="#handleMousePressed"
+                onMouseReleased="#handleMouseDragReleased"
+                onMouseDragReleased="#handleMouseDragReleased"
+                onMouseDragged="#handleMouseDragged">
+      <Label fx:id="coordinateLabel"
+             visible="false"
+             AnchorPane.topAnchor="0.0"
+             AnchorPane.rightAnchor="0.0"
+             pickOnBounds="false" />
+      <Rectangle fx:id="zoomBox" visible="false" style="-fx-fill: transparent; -fx-stroke: black;" />
+      <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+        <Button text="Back"
+                onMouseClicked="#popZoomHistory" />
+        <Button text="Home"
+                onMouseClicked="#revertZoom" />
+        <RadioButton
+                text="Drag"
+                selected="true"
+                onAction="#useDrag">
+          <toggleGroup>
+            <ToggleGroup fx:id="toggleGroup" />
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton text="Zoom"
+                     onAction="#useZoom">
+          <toggleGroup>
+            <fx:reference source="toggleGroup" />
+          </toggleGroup>
+        </RadioButton>
+      </HBox>
+    </AnchorPane>
+  </StackPane>
+</VBox>
+

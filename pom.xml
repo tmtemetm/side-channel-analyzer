@@ -17,6 +17,8 @@
 	<properties>
 		<java.version>15</java.version>
 		<dependency.version.javafx>15.0.1</dependency.version.javafx>
+		<dependency.version.commons-math3>3.6.1</dependency.version.commons-math3>
+		<dependency.version.chartfx-chart>11.2.3</dependency.version.chartfx-chart>
 	</properties>
 
 	<dependencies>
@@ -34,6 +36,12 @@
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-fxml</artifactId>
 			<version>${dependency.version.javafx}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>${dependency.version.commons-math3}</version>
 		</dependency>
 
 		<dependency>

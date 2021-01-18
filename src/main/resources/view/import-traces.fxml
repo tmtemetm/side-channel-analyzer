@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fi.tmtemetm.sidechannelanalyzer.controller.ImportTracesController">
+  <HBox style="-fx-padding: 10, 10, 10, 10;">
+    <Label text="Trace file:"
+           prefWidth="100.0" />
+    <Button onAction="#handleTraceFileSelect"
+            text="Select file" />
+    <Label fx:id="tracesFilename"
+           style="-fx-padding: 0, 0, 0, 20;" />
+  </HBox>
+  <HBox style="-fx-padding: 10, 10, 10, 10;">
+    <Label text="Plaintexts file:"
+           prefWidth="100.0" />
+    <Button onAction="#handlePlaintextsFileSelect"
+            text="Select file" />
+    <Label fx:id="plaintextFilename"
+           style="-fx-padding: 0, 0, 0, 20;" />
+  </HBox>
+  <HBox style="-fx-padding: 10, 10, 10, 10;">
+    <Label text="Trace length:"
+           prefWidth="100.0" />
+    <TextField fx:id="traceLengthField" />
+  </HBox>
+</VBox>
