@@ -15,10 +15,9 @@
 	<description>Side Channel Trace Analyzer Tool</description>
 
 	<properties>
-		<java.version>15</java.version>
+		<java.version>11</java.version>
 		<dependency.version.javafx>15.0.1</dependency.version.javafx>
 		<dependency.version.commons-math3>3.6.1</dependency.version.commons-math3>
-		<dependency.version.chartfx-chart>11.2.3</dependency.version.chartfx-chart>
 	</properties>
 
 	<dependencies>
