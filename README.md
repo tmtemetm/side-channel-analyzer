@@ -59,10 +59,9 @@ Below, we go through the operating principle of the DPA implementation with an e
 
 ### Measurement Setup and Trace Data
 
-The figure below presents a simplified measurement setting for measuring the power traces of a externally powered chip
-performing 128-bit AES that. The setup consists of the chip, an interface for communicating with and powering the chip
-and an oscilloscope for measuring the traces.
-
+We use an example measurement of an externally powered chip performing 128-bit AES. The chip was connected to a computer
+that sent encryption instructions with randomly selected 128-bit plaintexts to the chip. The power consumption of the
+chip was measured with an oscilloscope.
 
 Example measurement traces can be found here (binary data). The plaintexts passed to the chip can be found here.
 
