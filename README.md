@@ -40,7 +40,7 @@ mvnw.cmd clean package
 ```
 or, if you prefer,
 ```
-java -jar target/side-channel-analyzer-0.0.1-SNAPSHOT.jar
+java -jar target/side-channel-analyzer-1.0.0-RELEASE.jar
 ```
 
 ## Operating Principle and Examples
