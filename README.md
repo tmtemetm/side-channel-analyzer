@@ -124,13 +124,13 @@ The bytes after the first SubBytes operation are also easy to model, since they 
 the round key. Each byte in the output of the SubBytes operation can be calculated by XOR-ing the corresponding byte of
 the plaintext with the corresponding byte of the round key and passing that value through the S-Box. This implies that
 the DPA can be performed on individual bytes separately, instead of having to consider the whole round key. Roughly,
-this means that the complexity of the analysis is reduced from $2^128$ to $2^8$, although in practice it is not quite
-that simple.
+this means that the complexity of the analysis is reduced from 2<sup>128</sup> to 2<sup>8</sup>, although in practice it
+is not quite that simple.
 
 Based on the above discussion, the Hamming weight of the output value of the first SubBytes operation is a good
 candidate for a power model. In practice, the algorithm
 - considers each byte position in the round key separately,
-- iterates through all the $2^8$ possible bytes for that position,
+- iterates through all the 2<sup>8</sup> possible bytes for that position,
 - XOR-s the key with the corresponding plaintext position,
 - looks up the S-Box value for the XOR-ed value,
 - hypothesizes the power consumption by computing the Hamming weight of the S-Box output, and
@@ -142,23 +142,23 @@ Analyzer in the future.
 
 #### Correlating the Hypothesized and Measured Power Consumptions
 
-Suppose for now that we know the correct time instant $t$ where the modeled value (e.g., the output of the first
-SubBytes step) is processed. The distribution of power consumptions at time $t$ across traces should follow
+Suppose for now that we know the correct time instant _t_ where the modeled value (e.g., the output of the first
+SubBytes step) is processed. The distribution of power consumptions at time _t_ across traces should follow
 approximately the hypothesized power consumptions calculated using the power model and the currently considered byte
 position, if the key byte was correctly hypothesized. Of course there will be extra noise, notably from the remaining 15
 byte positions that are not being considered.
 
 On the other hand, if the hypothesized key byte is wrong, the hypothesized power consumptions should not correlate with
 the measured ones if the hypothesized key byte is wrong, since the power hypothesis (e.g., the hamming weight of
-the SubBytes output) will also be wrong. To find out the correct key byte, we can therefore iterate through all $2^8$
-possible key bytes and correlate the hypothesized power consumptions with the measured ones at time $t$. The correct key
-byte should be the one with the highest correlation.
+the SubBytes output) will also be wrong. To find out the correct key byte, we can therefore iterate through all
+2<sup>8</sup> possible key bytes and correlate the hypothesized power consumptions with the measured ones at time _t_.
+The correct key byte should be the one with the highest correlation.
 
-Since in reality, we don't know the correct time instant $t$, we'll also need to iterate through a time interval
-$t_1,...,t_l$, correlate all key-time pairs and choose the key byte and time instant with the highest correlation. For
-computing the correlations, we use the Pearson's correlation coefficient due to its simplicity.
+Since in reality, we don't know the correct time instant _t_, we'll also need to iterate through a time interval
+_t<sub>1</sub>,...,t<sub>l</sub>_, correlate all key-time pairs and choose the key byte and time instant with the
+highest correlation. For computing the correlations, we use the Pearson's correlation coefficient due to its simplicity.
 
-The algorithm has to compute $2^8 \cdot l$ correlations for all byte positions, where $l$ is the length of the time
+The algorithm has to compute 2<sup>8</sup>_l_ correlations for all byte positions, where _l_ is the length of the time
 interval. Choosing a wider time interval increases the possibility of finding the correct time instant but increases the
 running time of the algorithm.
 
@@ -192,10 +192,10 @@ approximate p-value for the correlation.
 
 
 The p-value provides a good way for interpreting whether the found key byte is likely to be correct or not. The p-value
-tells the probability of obtaining the observed correlation if no correlation is assumed. A p-value of $0.05$ therefore
-implies that there is a $5 \%$ probability of making the wrong conclusion if we conclude that the hypothesized and
-measured power consumptions are correlated. Therefore, a p-value of $0.05$ in the output of the algorithm tells us that
-there's a $5 \%$ probability of picking the wrong key byte. The p-values output by the algorithm should be considered
+tells the probability of obtaining the observed correlation if no correlation is assumed. A p-value of 0.05 therefore
+implies that there is a 5 % probability of making the wrong conclusion if we conclude that the hypothesized and
+measured power consumptions are correlated. Therefore, a p-value of 0.05 in the output of the algorithm tells us that
+there's a 5 % probability of picking the wrong key byte. The p-values output by the algorithm should be considered
 approximate, since the underlying assumptions behind the computation of the p-value are not necessarily fully met.
 Nevertheless, the p-values provide a good tool for approving or rejecting the output of the algorithm. The lower the
 p-value, the better the result.
