@@ -59,9 +59,9 @@ Below, we go through the operating principle of the DPA implementation with an e
 
 ### Measurement Setup and Trace Data
 
-The figure below presents a simplified measurement setting for measuring the power traces of a chip performing AES that
-is externally powered. It consists of the chip, an interface for communicating with and powering the chip and an
-oscilloscope for measuring the traces.
+The figure below presents a simplified measurement setting for measuring the power traces of a externally powered chip
+performing 128-bit AES that. The setup consists of the chip, an interface for communicating with and powering the chip
+and an oscilloscope for measuring the traces.
 
 
 Example measurement traces can be found here (binary data). The plaintexts passed to the chip can be found here.
@@ -74,19 +74,26 @@ The tool also expects a file containing the plaintexts used for encryption with 
 and whitespace separating the individual bytes in hexadecimal. The trace length is primarily inferred from the length of
 the trace file and the number of plaintexts. If unsuccessful, it has to be input by the user.
 
+![Trace import view](screenshots/import.png)
+
 ### Plotting Traces in Side-Channel Analyzer
 
 After the traces and plaintexts have been imported, the user can plot the traces under the `Traces` tab. The figure
 figure shows the initial view of the traces tab.
 
+![Traces view](screenshots/traces.png)
 
 On the left, the user can select which traces to plot and the starting and ending points for plotting. As an example,
 the figure below shows the plot of the first two traces (Choose `Trace 0` and `Trace 1` and press `Plot traces`). We can
-immediately notice 10 bumps of larger power consumption, which correspond to the 10 round of 128-bit AES.
+immediately notice 10 bumps of larger power consumption, which correspond to the 10 rounds of 128-bit AES.
+
+![First two traces](screenshots/plot.png)
 
 The traces can be examined using the drag and zoom functionalities by dragging over the image. The tool in use can be
 changed using the radio buttons below the plot area. The `Back` and `Home` buttons allow reverting to previous views
 or to the first view. Below we have zoomed over the first AES round.
+
+![First round](screenshots/plot-zoom.png)
 
 Plotting a large amount of full traces is not recommended, since the full traces consume a lot of memory. If one wishes
 to view a large amount of traces at once, they should be plotted only within a small interval using the `Start` and
@@ -98,6 +105,8 @@ Differential power analysis can be started from the `DPA` tab. The user can inpu
 analysis and the starting and ending points of the time interval to consider for the analysis. Alternatively, the user
 can set the interval to the currently plotted interval by pressing `Run DPA on selection` under the `Traces` tab. The
 interval should not be set too long (tens of thousands), since the analysis is quite computationally expensive.
+
+![DPA initial view](screenshots/dpa-view.png)
 
 To perform the DPA, press `Run DPA`. This will open a new tab for inspecting the results. Let's see how's the analysis
 conducted.
@@ -165,22 +174,28 @@ running time of the algorithm.
 #### An Example in Side-Channel Analyzer
 
 We will run an example DPA using the Side-Channel Analyzer tool. From the plot of the first two traces below, we can
-recognize the 10 round of a 128-bit AES.
+recognize the 10 rounds of a 128-bit AES.
 
+![First two traces](screenshots/plot.png)
 
 We also notice a large spike in power consumption that is present in many of
 the other rounds as well. Hoping that the modeled intermediate value is processed somewhere around that spike, we zoom
 in around that spike.
 
+![Zooming in](screenshots/dpa-plot-zooming.png)
 
 We then send the currently shown interval to the DPA feature by pressing `Run DPA on selection`.
 
+![Pressing Run DPA on selection](screenshots/dpa-plot-zoomed.png)
 
 We leave the settings as they are and press `Run DPA`.
 
+![Pressing run DPA](screenshots/dpa-plot-zoomed.png)
 
 This will open a new tab with the results. The tool analyzes the bytes in parallel and updates the results as they
 finish.
+
+![DPA Results](screenshots/dpa-results.png)
 
 The key string presents the completed key bytes in hexadecimal and `??` for uncompleted bytes. The presented string is
 the round key, but conveniently for the first AddRoundKey operation, the round key equals the encryption key.
@@ -190,6 +205,7 @@ value hypotheses with the best result first. For each hypothesis, the table pres
 correlation, the correlation between the hypothesized and measured power consumptions at that instant, and an
 approximate p-value for the correlation.
 
+![DPA Results](screenshots/dpa-details.png)
 
 The p-value provides a good way for interpreting whether the found key byte is likely to be correct or not. The p-value
 tells the probability of obtaining the observed correlation if no correlation is assumed. A p-value of 0.05 therefore
