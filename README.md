@@ -63,7 +63,8 @@ We use an example measurement of an externally powered chip performing 128-bit A
 that sent encryption instructions with randomly selected 128-bit plaintexts to the chip. The power consumption of the
 chip was measured with an oscilloscope.
 
-Example measurement traces can be found here (binary data). The plaintexts passed to the chip can be found here.
+Example measurement traces and plaintexts can be found
+[here](https://github.com/tmtemetm/side-channel-analyzer/releases/download/1.0.0-RELEASE/examples.zip).
 
 ### Importing Traces in Side-Channel Analyzer
 
