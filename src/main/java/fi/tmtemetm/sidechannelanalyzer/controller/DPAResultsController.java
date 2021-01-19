@@ -2,6 +2,7 @@ package fi.tmtemetm.sidechannelanalyzer.controller;
 
 import fi.tmtemetm.sidechannelanalyzer.model.DPAResult;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -105,7 +106,7 @@ public class DPAResultsController {
     TableView<DPAResult.KeyByteHypothesis> tableView = new TableView<>();
 
     TableColumn<DPAResult.KeyByteHypothesis, String> byteColumn = new TableColumn<>("Byte");
-    byteColumn.setCellValueFactory(new PropertyValueFactory<>("keyByte"));
+    byteColumn.setCellValueFactory(features -> new SimpleStringProperty(String.format("%02x", Byte.toUnsignedInt(features.getValue().getKeyByte()))));
 
     TableColumn<DPAResult.KeyByteHypothesis, String> timeColumn = new TableColumn<>("Time");
     timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
