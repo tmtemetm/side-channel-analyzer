@@ -68,8 +68,8 @@ public class TraceInputServiceImpl implements TraceInputService {
       traces.add(trace);
       indices.add(i);
       try {
-        inputStream.skipNBytes((previousIndex < 0 ? 0 : endSkipLength)
-                + (long) (i - previousIndex - 1) * traceLength + start);
+        inputStream.readNBytes((previousIndex < 0 ? 0 : endSkipLength)
+                + (i - previousIndex - 1) * traceLength + start);
         for (int j = 0; j < readLength; j++) {
           int read = inputStream.read();
           if (read < 0) {
