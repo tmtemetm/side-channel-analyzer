@@ -190,7 +190,7 @@ We then send the currently shown interval to the DPA feature by pressing `Run DP
 
 We leave the settings as they are and press `Run DPA`.
 
-![Pressing run DPA](screenshots/dpa-plot-zoomed.png)
+![Pressing run DPA](screenshots/dpa-settings.png)
 
 This will open a new tab with the results. The tool analyzes the bytes in parallel and updates the results as they
 finish.
