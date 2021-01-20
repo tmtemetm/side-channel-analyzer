@@ -214,7 +214,8 @@ finish.
 ![DPA Results](screenshots/dpa-results.png)
 
 The key string presents the completed key bytes in hexadecimal and `??` for uncompleted bytes. The presented string is
-the round key, but conveniently for the first AddRoundKey operation, the round key equals the encryption key.
+the round key, but conveniently for the first AddRoundKey operation of a 128-bit AES, the round key equals the
+encryption key.
 
 Individual bytes can be examined by selecting the desired byte position from the choose box. The table lists the byte
 value hypotheses with the best result first. For each hypothesis, the table presents the time instant with the highest
