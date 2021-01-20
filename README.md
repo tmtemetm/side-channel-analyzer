@@ -14,8 +14,23 @@ future.
 
 - Issue tracking: https://github.com/tmtemetm/side-channel-analyzer/issues
 - External Dependencies:
-    - Java 11 or higher
+    - JDK 11 or higher
 
+## Running
+
+Make sure you have JDK 11 or higher installed on your machine. Oracle provides an installation guide for the latest java
+version (15) for Linux, macOS and Microsoft Windows at
+[https://docs.oracle.com/en/java/javase/15/install/overview-jdk-installation.html](https://docs.oracle.com/en/java/javase/15/install/overview-jdk-installation.html).
+You can also use [OpenJDK](https://openjdk.java.net/install/).
+
+Download the jar file `side-channel-analyzer-1.0.0-RELEASE.jar` from 
+[https://github.com/tmtemetm/side-channel-analyzer/releases/tag/1.0.0-RELEASE](https://github.com/tmtemetm/side-channel-analyzer/releases/tag/1.0.0-RELEASE).
+
+If you have the JDK correctly set, the jar file should run by double-clicking. Otherwise, you can also run it from the
+command line with
+```
+java -jar side-channel-analyzer-1.0.0-RELEASE.jar
+```
 
 ## Local Development Setup
 
@@ -63,8 +78,9 @@ We use an example measurement of an externally powered chip performing 128-bit A
 that sent encryption instructions with randomly selected 128-bit plaintexts to the chip. The power consumption of the
 chip was measured with an oscilloscope.
 
-Example measurement traces and plaintexts can be found
-[here](https://github.com/tmtemetm/side-channel-analyzer/releases/download/1.0.0-RELEASE/examples.zip).
+Example measurement traces and plaintexts can be found at
+[https://github.com/tmtemetm/side-channel-analyzer/releases/tag/1.0.0-RELEASE](https://github.com/tmtemetm/side-channel-analyzer/releases/tag/1.0.0-RELEASE).
+The examples are located in the `examples.zip` file.
 
 ### Importing Traces in Side-Channel Analyzer
 
